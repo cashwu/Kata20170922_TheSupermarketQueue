@@ -44,6 +44,24 @@ namespace Kata20170922_TheSupermarketQueue
             QueueTimeShouldBe(3, new[] { 2, 1, 1 }, 2);
         }
 
+        [TestMethod]
+        public void input_1_2_3_4_array_and_1_tills()
+        {
+            QueueTimeShouldBe(10, new[] { 1, 2, 3, 4 }, 1);
+        }
+
+        [TestMethod]
+        public void input_2_2_3_3_4_4_array_and_2_tills()
+        {
+            QueueTimeShouldBe(9, new[] { 2, 2, 3, 3, 4, 4 }, 2);
+        }
+
+        [TestMethod]
+        public void input_1_2_3_4_5_array_and_2_tills()
+        {
+            QueueTimeShouldBe(5, new[] { 1, 2, 3, 4, 5 }, 100);
+        }
+
         private static void QueueTimeShouldBe(int expected, int[] customers, int n)
         {
             var kata = new Kata();
