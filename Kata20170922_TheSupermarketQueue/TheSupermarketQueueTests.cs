@@ -56,14 +56,14 @@ namespace Kata20170922_TheSupermarketQueue
     {
         public int QueueTime(int[] customers, int n)
         {
-            var array = new int[n];
+            var tills = new int[n];
 
             for (var i = 0; i < customers.Length; i++)
             {
-                array[i % n] += customers[i];
+                tills[i % n] += customers[i];
             }
 
-            return array.Max();
+            return tills.Max();
         }
     }
 }
