@@ -41,7 +41,7 @@ namespace Kata20170922_TheSupermarketQueue
         [TestMethod]
         public void input_2_1_1_array_and_2_tills()
         {
-            QueueTimeShouldBe(3, new[] { 2, 1, 1 }, 2);
+            QueueTimeShouldBe(2, new[] { 2, 1, 1 }, 2);
         }
 
         [TestMethod]
@@ -62,6 +62,12 @@ namespace Kata20170922_TheSupermarketQueue
             QueueTimeShouldBe(5, new[] { 1, 2, 3, 4, 5 }, 100);
         }
 
+        [TestMethod]
+        public void input_3_2_1_array_and_2_tills()
+        {
+            QueueTimeShouldBe(3, new[] { 3, 2, 1 }, 2);
+        }
+
         private static void QueueTimeShouldBe(int expected, int[] customers, int n)
         {
             var kata = new Kata();
@@ -75,10 +81,10 @@ namespace Kata20170922_TheSupermarketQueue
         public int QueueTime(int[] customers, int n)
         {
             var tills = new int[n];
-
-            for (var i = 0; i < customers.Length; i++)
+            
+            foreach (var c in customers)
             {
-                tills[i % n] += customers[i];
+                tills[Array.IndexOf(tills, tills.Min())] += c;
             }
 
             return tills.Max();
